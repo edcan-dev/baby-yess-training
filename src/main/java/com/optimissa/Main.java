@@ -1,34 +1,51 @@
 package com.optimissa;
 
 import com.optimissa.entidades.*;
+import com.optimissa.entidades.logistica.DestinatarioLogistica;
+import com.optimissa.entidades.logistica.Paquete;
+import com.optimissa.entidades.logistica.RemitenteLogistica;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
 
 public class Main {
 
   public static void main(String[] args) {
 
-    YessPersona yessBebe = new YessPersona("Yesenia", 23, "Ingenieria");
-    EdgarPersona edgarBebe = new EdgarPersona("Edgar", 22);
+    Scanner scanner = new Scanner(System.in);
 
-    List<Persona> listaDePersonas = new ArrayList<>();
-    listaDePersonas.add(yessBebe);
-    listaDePersonas.add(edgarBebe);
+    System.out.println("===== SISTEMA DE LOGÍSTICA =====");
 
-    listaDePersonas.forEach(persona -> {
+    System.out.print("Ingrese el nombre del remitente: ");
+    String remitenteNombre = scanner.nextLine();
+    System.out.print("Ingrese el nombre del paquete: ");
+    String paqueteNombre = scanner.nextLine();
+    System.out.print("Ingrese el origen del paquete: ");
+    String paqueteOrigen = scanner.nextLine();
 
-      if(persona instanceof YessPersona) {
-        YessPersona yessPersona = (YessPersona) persona;
-        System.out.println("Soy " + yessPersona.getName() + " y soy " + yessPersona.getTitulo());
-      }
-      if(persona instanceof EdgarPersona) {
-        EdgarPersona edgarPersona = (EdgarPersona) persona;
-        System.out.println("Soy " + edgarPersona.getName() + " y no tengo titulo");
-      }
+    System.out.print("Ingrese el nombre del destinatario: ");
+    String destinatarioNombre = scanner.nextLine();
+    System.out.print("Ingrese el destino del paquete: ");
+    String paqueteDestino = scanner.nextLine();
 
-    });
+    if(Objects.equals(destinatarioNombre, remitenteNombre)) {
+      System.out.println("El destinatario no puede ser la misma persona que el remitente");
+      return;
+    }
+
+    RemitenteLogistica remitente = new RemitenteLogistica(remitenteNombre);
+    DestinatarioLogistica destinatario = new DestinatarioLogistica(destinatarioNombre);
+
+    Paquete paquete = new Paquete(paqueteNombre, paqueteOrigen, paqueteDestino);
+
+    remitente.setPaquetes(List.of(paquete));
+    destinatario.setPaquetes(List.of(paquete));
+
+    remitente.mostrarPaquetes();
+    destinatario.mostrarPaquetes();
 
   }
 }

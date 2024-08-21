@@ -1,32 +1,20 @@
 package com.optimissa.entidades;
 
-public class Persona {
+public abstract class Persona {
 
-  private String name;
-  private int edad;
+  private String nombre;
 
-  public Persona(String name, int edad) {
-    this.name = name;
-    this.edad = edad;
+  public Persona(String nombre) {
+    this.nombre = nombre;
   }
 
-  public String getName() {
-    return name;
+  public String getNombre() {
+    return nombre;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setnombre(String nombre) {
+    this.nombre = nombre;
   }
 
-  public int getEdad() {
-    return edad;
-  }
-
-  public void setEdad(int edad) {
-    this.edad = edad;
-  }
-
-  public void saludar() {
-    System.out.println("Hola, soy una persona!");
-  }
+  public abstract void saludar();
 }
