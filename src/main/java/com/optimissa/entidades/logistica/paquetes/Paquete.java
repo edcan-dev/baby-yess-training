@@ -1,4 +1,4 @@
-package com.optimissa.entidades.logistica;
+package com.optimissa.entidades.logistica.paquetes;
 
 public class Paquete {
 

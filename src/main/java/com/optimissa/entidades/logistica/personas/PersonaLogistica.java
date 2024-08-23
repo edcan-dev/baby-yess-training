@@ -1,6 +1,7 @@
-package com.optimissa.entidades.logistica;
+package com.optimissa.entidades.logistica.personas;
 
 import com.optimissa.entidades.Persona;
+import com.optimissa.entidades.logistica.paquetes.Paquete;
 
 import java.util.List;
 

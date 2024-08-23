@@ -1,6 +1,4 @@
-package com.optimissa.entidades.logistica;
-
-import java.util.List;
+package com.optimissa.entidades.logistica.personas;
 
 public class RemitenteLogistica extends PersonaLogistica {
 
