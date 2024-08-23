@@ -17,6 +17,10 @@ public abstract class Transporte {
     this.paquetes = new ArrayList<>();
   }
 
+  public String getNombre() {
+    return nombre;
+  }
+
   public List<Paquete> getPaquetes() {
     return paquetes;
   }
