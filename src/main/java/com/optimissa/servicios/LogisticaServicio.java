@@ -117,7 +117,7 @@ public class LogisticaServicio {
     // TODO: Implementar el metodo enviarPaquete
     RemitenteLogistica remitente = (RemitenteLogistica) usuarios.get(0);
     DestinatarioLogistica destinatario = (DestinatarioLogistica) usuarios.get(1);
-transporte.enviarPaquetes();
+    transporte.enviarPaquetes();
     System.out.println("Información del envío");
     System.out.println("El usuario " + remitente .getNombre() + " de " + paquete.getOrigen() + " envío el paquete " + paquete.getNombre() + " a el usuario " + destinatario .getNombre() + " con destino a " + paquete.getDestino() + " utilizando el transporte " + transporte.getNombre() + ".");
 
