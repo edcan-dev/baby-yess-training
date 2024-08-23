@@ -6,6 +6,7 @@ import com.optimissa.entidades.logistica.personas.PersonaLogistica;
 import com.optimissa.entidades.logistica.personas.RemitenteLogistica;
 import com.optimissa.entidades.logistica.transportes.Transporte;
 import com.optimissa.entidades.logistica.transportes.TransporteAereo;
+import com.optimissa.entidades.logistica.transportes.TransporteMaritimo;
 import com.optimissa.entidades.logistica.transportes.TransporteTerrestre;
 
 import java.sql.SQLOutput;
@@ -100,7 +101,7 @@ public class LogisticaServicio {
         transporte = new TransporteAereo(transporteNombre, transporteCapacidad);
         break;
       case 3:
-        // TODO: Tarea - TransporteMaritimo
+        transporte = new TransporteMaritimo(transporteNombre, transporteCapacidad);
         break;
       default:
         System.out.println("La opcion en incorrecta");
@@ -114,7 +115,12 @@ public class LogisticaServicio {
 
   private static void enviarPaquete(Paquete paquete, List<PersonaLogistica> usuarios, Transporte transporte) {
     // TODO: Implementar el metodo enviarPaquete
-    System.out.println("Se envio!");
+    RemitenteLogistica remitente = (RemitenteLogistica) usuarios.get(0);
+    DestinatarioLogistica destinatario = (DestinatarioLogistica) usuarios.get(1);
+    transporte.enviarPaquetes();
+    System.out.println("Información del envío");
+    System.out.println("El usuario " + remitente .getNombre() + " de " + paquete.getOrigen() + " envío el paquete " + paquete.getNombre() + " a el usuario " + destinatario .getNombre() + " con destino a " + paquete.getDestino() + " utilizando el transporte " + transporte.getNombre() + ".");
+
   }
 
 }
